@@ -20,24 +20,20 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [
               "src/assets/web/assets/jquery/jquery.min.js",
               "src/assets/popper/popper.min.js",
               "src/assets/tether/tether.min.js",
-              "src/assets/bootstrap/js/bootstrap.min.js",  
+              "src/assets/bootstrap/js/bootstrap.min.js",
               "src/assets/smoothscroll/smooth-scroll.js",
               "src/assets/dropdown/js/nav-dropdown.js",
               "src/assets/dropdown/js/navbar-dropdown.js",
               "src/assets/touchswipe/jquery.touch-swipe.min.js",
               "src/assets/theme/js/script.js"
-               
-            ]
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -50,6 +46,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
+              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -72,8 +69,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Glammy:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "Glammy:build"
           },
           "configurations": {
             "production": {
@@ -132,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "Glammy"
+  "defaultProject": "Glammy",
+  "cli": {
+    "analytics": "df30e7b1-8568-4006-b7b3-00114b9059cd"
+  }
 }
