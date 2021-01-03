@@ -28,7 +28,8 @@
               "src/assets/dropdown/js/nav-dropdown.js",
               "src/assets/dropdown/js/navbar-dropdown.js",
               "src/assets/touchswipe/jquery.touch-swipe.min.js",
-              "src/assets/theme/js/script.js"
+              "src/assets/theme/js/script.js",
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"

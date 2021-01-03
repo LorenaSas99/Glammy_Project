@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   femeiOpen: boolean= false;
   barbatiOpen: boolean= false;
+  loggedIn: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.loggedIn = localStorage.getItem('glammy_user') !== null;
   }
   goToAccesoriiF(){
     this.router.navigate(["femei/accesorii"], {replaceUrl:true});
@@ -49,5 +51,10 @@ export class NavigationComponent implements OnInit {
   }
   CloseBarbati(){
     this.barbatiOpen=false;
+  }
+
+  logout() {
+    localStorage.removeItem('glammy_user');
+    this.loggedIn = localStorage.getItem('glammy_user') !== null;
   }
 }

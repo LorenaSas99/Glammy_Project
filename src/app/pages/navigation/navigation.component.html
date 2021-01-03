@@ -37,8 +37,10 @@
                             </div>
                         </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black text-primary display-4" (click)="goToCont()">
+                        <a [hidden]="loggedIn" class="nav-link link text-black text-primary display-4" (click)="goToCont()">
                             <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Cont</a>
+                        <a [hidden]="!loggedIn" class="nav-link link text-black text-primary display-4" (click)="logout()">
+                            <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Logout</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black text-primary display-4" (click)="goToCos()">

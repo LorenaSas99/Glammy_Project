@@ -13,9 +13,11 @@ export class UserManagementService {
   public login(email: string, password: string): void {
     this.http.post<any>(`${environment.serverUrl}/login`, { email: email, password: password }).subscribe(data => {
       console.log(data);
-      if (data === 'ok') {
+      if (data.status === 'ok') {
         // User logged in. Redirect to main page
         console.log('User logged in. Redirect to main page');
+        localStorage.setItem("glammy_user", data.id);
+        console.log('Saved user id: ' + localStorage.getItem('glammy_user'));
         this.router.navigate(["home"], { replaceUrl: true });
       }
     });

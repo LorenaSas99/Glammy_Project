@@ -9,13 +9,13 @@ function createRouter(db) {
     db.all(sql, [], (err, rows) => {
       if (err) {
         console.log(err);
-        res.status(500).json('error');
+        res.status(500).json({status: 'error'});
       } else if (rows.length === 1) {
         console.log('User found');
-        res.status(200).json('ok');
+        res.status(200).json({status: 'ok', id: rows[0].id });
       } else {
         console.log('user not found');
-        res.status(200).json('not_found');
+        res.status(200).json({status: 'not_found'});
       }
     });
   });

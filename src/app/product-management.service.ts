@@ -12,13 +12,17 @@ export class ProductManagementService {
 
   public cumpara(user_id: number, titlu: string, pret: string, descriere: string): void {
     this.http.post<any>(`${environment.serverUrl}/add`, { user_id: user_id, title: titlu, pret: pret, descriere: descriere}).subscribe(data => {
-      console.log(data);
       if (data === 'ok') {
-        // User logged in. Redirect to main page
-        console.log('User logged in. Redirect to main page');
+        console.info('Product added to cart');
+      }
+    });
+  }
+
+  public getProducts(): any {
+    this.http.get<any>(`${environment.serverUrl}/products?user_id=` + localStorage.getItem('glammy_user')).subscribe(data => {
+      if (data.status === 'ok') {
+        return data.products;
       }
     });
   }
 }
-
-
